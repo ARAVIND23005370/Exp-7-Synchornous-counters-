@@ -46,43 +46,67 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Create a new project in Quartus II software.
 
+2.Name the project as uc for upcounter and dc for downcounter.
 
+3.Create a new Verilog HDL file in the project file.
 
-### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+4.Name the module as dc and uc for downcounter and upcounter.
 
+5.Within the module declare input and output variables. 
 
+6.Complete the program.
 
-
-
-
+7.End the module.
+### PROGRAM
+### UP COUNTER
+```python
+module uc(clk, A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((A[0])&(A[1]))^A[2]);
+A[1]=(A[0])^A[1];
+A[0]=A[0]^1;
+end
+endmodule
+```
+### DOWN COUNTER  
+```PYTHON
+module dc(clk,A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+A[2]=(((~A[0])&(~A[1]))^A[2]);
+A[1]=(~A[0])^A[1];
+A[0]=1^A[0];
+end
+endmodule
+```
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+###  UP COUNTER 
+![WhatsApp Image 2023-12-30 at 10 00 40_597a48f3](https://github.com/23004027/Exp-7-Synchornous-counters-/assets/138956447/5e559cc8-dbe8-44e2-b276-17c8d030faa2)
 
+###  DOWN COUNTER  
 
-
-
-
-
-
+![WhatsApp Image 2023-12-30 at 10 00 55_de7b0643](https://github.com/23004027/Exp-7-Synchornous-counters-/assets/138956447/f03e7228-5486-4193-be9e-0a293ba63a64)
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+### UP COUNTER
+![WhatsApp Image 2023-12-30 at 10 01 35_88cedef8](https://github.com/23004027/Exp-7-Synchornous-counters-/assets/138956447/3760fb80-cfcb-47fa-925d-4031753f6a0e)
+###  DOWN COUNTER  
 
-
-
-
-
+![WhatsApp Image 2023-12-30 at 10 01 43_f4dd7164](https://github.com/23004027/Exp-7-Synchornous-counters-/assets/138956447/b58043cb-f08a-47f6-a681-f542d5096c79)
 ### TRUTH TABLE 
+### UP COUNTER
+![WhatsApp Image 2023-12-30 at 10 01 06_36f6af7d](https://github.com/23004027/Exp-7-Synchornous-counters-/assets/138956447/494109fb-cd55-403c-95d6-0e32e3f47b9c)
 
-
-
-
-
+### DOWN COUNTER
+![WhatsApp Image 2023-12-30 at 10 01 22_6b0431ab](https://github.com/23004027/Exp-7-Synchornous-counters-/assets/138956447/50fad036-347e-44fc-8b8d-b62da485887a)
 
 ### RESULTS 
+Thus we have verified the truthtable of 4-bit up and down counter using verilog.
